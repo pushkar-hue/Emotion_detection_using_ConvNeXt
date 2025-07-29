@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Emotion Detection</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        h1 {
+            color: #1c1e21;
+            margin-bottom: 20px;
+        }
+        .video-container {
+            border: 5px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background-color: #000;
+            width: 80%;
+            max-width: 720px;
+            overflow: hidden; /* Ensures the border-radius is respected by the image */
+        }
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #606770;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Live Emotion Detection Feed</h1>
+    
+    <div class="video-container">
+        <!-- The src attribute points to our Flask route that generates the video stream -->
+        <img src="{{ url_for('video_feed') }}" alt="Video Stream">
+    </div>
+
+    <footer>
+        <p>This application uses a ConvNeXt model to predict emotions from a live webcam feed.</p>
+    </footer>
+
+</body>
+</html>
