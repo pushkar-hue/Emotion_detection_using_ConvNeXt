@@ -1,27 +1,24 @@
 # Use official Python image as base
 FROM python:3.10-slim
 
-# ---> ADDED: Install system packages needed for Git LFS
+# Install system packages needed for Git LFS
 RUN apt-get update && apt-get install -y git git-lfs && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
 WORKDIR /app
 
-# Copy requirements and install dependencies
-# This is done in a separate step to leverage Docker's layer caching.
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+# ----> CHANGE 1: Clone the repository instead of copying files <----
+# This brings in the .git folder, which is required for git lfs pull
+RUN git clone https://github.com/mohitsharmas97/Emotion_detection_using_ConvNeXt.git .
 
-# Copy all project files into the container
-COPY . .
-
-# ---> ADDED: Download the large model file using Git LFS
+# ----> CHANGE 2: Now that it's a real git repo, pull the large files <----
 RUN git lfs pull
+
+# Install Python dependencies from the cloned repo
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Expose the port the app runs on
 EXPOSE 5000
 
 # Run the Flask app
-# The command directly runs the python script.
-# The FLASK_* environment variables are not needed for this command.
 CMD ["python", "app.py"]
