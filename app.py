@@ -25,7 +25,7 @@ def load_model(model_path):
     model = models.convnext_tiny(weights=None)
     in_features = model.classifier[2].in_features
     model.classifier[2] = nn.Linear(in_features, len(CLASS_NAMES))
-    model.load_state_dict(torch.load(model_path, map_location=DEVICE))
+    model.load_state_dict(torch.load(model_path, map_location=DEVICE, weights_only=False))
     model.to(DEVICE)
     model.eval()
     return model
@@ -150,3 +150,4 @@ if __name__ == '__main__':
     # Note: Using debug=True with live video can sometimes cause issues.
     # Set to False if you experience lag or crashes.
     app.run(debug=False, host='0.0.0.0', port=5000)
+
