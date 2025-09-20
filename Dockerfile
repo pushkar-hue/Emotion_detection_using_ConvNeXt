@@ -9,7 +9,7 @@ WORKDIR /app
 
 # ----> CHANGE 1: Clone the repository instead of copying files <----
 # This brings in the .git folder, which is required for git lfs pull
-RUN git clone https://github.com/mohitsharmas97/Emotion_detection_using_ConvNeXt.git .
+RUN git clone https://github.com/pushkar-hue/Emotion_detection_using_ConvNeXt.git .
 
 # ----> CHANGE 2: Now that it's a real git repo, pull the large files <----
 RUN git lfs pull
@@ -22,3 +22,4 @@ EXPOSE 5000
 
 # Run the Flask app
 CMD ["python", "app.py"]
+
