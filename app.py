@@ -26,7 +26,7 @@ FACE_CASCADE_PATH = os.path.join(ASSETS_DIR, "haarcascade_frontalface_default.xm
 
 # --- CORRECTED MODEL URL ---
 # IMPORTANT: REPLACE THIS WITH THE REAL URL YOU COPIED FROM YOUR GITHUB RELEASE
-MODEL_URL = "https://github.com/pushkar-hue/Emotion-Detection-Using-ConvNext/releases/download/v1.0/convnext_fer2013.pth"
+MODEL_URL = "MODEL_URL = "https://github.com/mohithsharmas97/Emotion-Detection-Using-ConvNext/releases/download/v1.0/convnext_fer2013.pth"
 CASCADE_URL = "https://raw.githubusercontent.com/opencv/opencv/master/data/haarcascades/haarcascade_frontalface_default.xml"
 
 def download_file(url, path):
@@ -309,6 +309,7 @@ if __name__ == '__main__':
 #     # Step 3: Start the web server
 #     port = int(os.environ.get("PORT", 5000))
 #     app.run(host='0.0.0.0', port=port)
+
 
 
 
