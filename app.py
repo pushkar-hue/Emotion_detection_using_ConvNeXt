@@ -26,7 +26,7 @@ MODEL_PATH = os.path.join(ASSETS_DIR, "convnext_fer2013.pth")
 FACE_CASCADE_PATH = os.path.join(ASSETS_DIR, "haarcascade_frontalface_default.xml")
 
 # --- IMPORTANT: Create a GitHub Release and paste the direct download URLs here ---
-MODEL_URL = "sha256:4020519b1b8394c05b56fec8c9cb8011effd8480af7df863efb7a3b6df851cb5" # <-- REPLACE WITH YOUR REAL URL
+MODEL_URL = "sha256:4020519b1b8394c05b56fec8c9cb8011effd8480af7df863efb7a3b6df851cb5"
 CASCADE_URL = "https://raw.githubusercontent.com/opencv/opencv/master/data/haarcascades/haarcascade_frontalface_default.xml"
 
 def download_file(url, path):
@@ -152,4 +152,5 @@ if __name__ == '__main__':
     # Step 3: Start the web server
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
+
 
